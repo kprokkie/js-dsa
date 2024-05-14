@@ -1,94 +1,95 @@
 class Node {
-  constructor(value) {
-      this.value = value;
-      this.left = null;
-      this.right = null;
-  }
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
 }
 
 class MyBST {
-  constructor() {
-      this.root = null;
-  }
+    constructor() {
+        this.root = null;
+    }
 
-  insert(value) {
-      const newNode = new Node(value);
+    insert(value) {
+        const newNode = new Node(value);
 
-      if (!this.root) {
-          this.root = newNode;
-          return this;
-      }
+        if (!this.root) {
+            this.root = newNode;
+            return this;
+        }
 
-      let currentNode = this.root;
+        let currentNode = this.root;
 
-      // to repeat this use while
-      while (true) {
-          if (currentNode.value < value) {
-              // go right
-              if (!currentNode.right) {
-                  currentNode.right = newNode;
-                  return this;
-              }
-              currentNode = currentNode.right;
+        // to repeat this use while
+        while (true) {
+            if (currentNode.value < value) {
+                // go right
+                if (!currentNode.right) {
+                    currentNode.right = newNode;
+                    return this;
+                }
+                currentNode = currentNode.right;
 
-          } else {
-              // go left 
-              if (!currentNode.left) {
-                  currentNode.left = newNode;
-                  return this;
-              }
-              currentNode = currentNode.left;
-          }
-      }
-  }
+            } else {
+                // go left 
+                if (!currentNode.left) {
+                    currentNode.left = newNode;
+                    return this;
+                }
+                currentNode = currentNode.left;
+            }
+        }
+    }
 
-  lookup(value) {
-      if (!this.root) {
-          return;
-      }
+    // path from root node to searched node
+    lookup(value) {
+        if (!this.root) {
+            return;
+        }
 
-      let currentNode = this.root;
-      while (false) {
-          console.log("--> ", currentNode.value)
+        let currentNode = this.root;
+        while (false) {
+            console.log("--> ", currentNode.value)
 
-          if (currentNode.value === value) {
-              return value;
-          }
+            if (currentNode.value === value) {
+                return value;
+            }
 
-          if (currentNode.value < value) {
-              // go right
-              if (!currentNode.right) {
-                  return;
-              }
-              currentNode = currentNode.right;
+            if (currentNode.value < value) {
+                // go right
+                if (!currentNode.right) {
+                    return;
+                }
+                currentNode = currentNode.right;
 
-          } else {
-              // go left 
-              if (!currentNode.left) {
-                  return;
-              }
-              currentNode = currentNode.left;
-          }
-      }
+            } else {
+                // go left 
+                if (!currentNode.left) {
+                    return;
+                }
+                currentNode = currentNode.left;
+            }
+        }
 
-      // alter
-      while (currentNode) {
-          if (currentNode.value < value) {
-              // go right
-              currentNode = currentNode.right;
-          } else if (currentNode.value > value) {
-              // go left 
-              currentNode = currentNode.left;
-          } else {
-              return currentNode;
-          }
-      }
-      return false;
-  }
+        // alter
+        while (currentNode) {
+            if (currentNode.value < value) {
+                // go right
+                currentNode = currentNode.right;
+            } else if (currentNode.value > value) {
+                // go left 
+                currentNode = currentNode.left;
+            } else {
+                return currentNode;
+            }
+        }
+        return false;
+    }
 
-  delete(value) {
+    delete(value) {
 
-  }
+    }
 }
 
 const myBST = new MyBST();
