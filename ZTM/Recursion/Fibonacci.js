@@ -1,7 +1,8 @@
 // 0 1 1 2 3 5[5] 8 13 21[8] 34 55[10] 89 144
 
-// return the number from index\
+// return the number from index
 
+// swap iterative
 const iFibonacci = (idx) => {
     // if (idx === 0) return 0;
     // if (idx === 1) return 1;
@@ -70,10 +71,10 @@ console.log(rFibonacci(8));
 const arrFibonacci = (idx) => {
     if (idx < 2) return idx;
 
-    const arr = [0, 1];
+    const arr = [0, 1]; // kind of caching
 
     for (let i = 2; i <= idx; i++) { // O(n)
-        arr[i] = arr[i - 1] + arr[i - 2];
+        arr[i] = arr[i - 1] + arr[i - 2]; // mathematics tn = tn-1 + tn-2
     }
 
     return arr[idx];
